@@ -1,0 +1,128 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.selectpicker').selectpicker();
+    });
+</script>
+<div ng-controller='performanceCtrl'>
+    <div class="row">
+        <div class="col-md-offset-10 col-md-2" style="margin-top: 25px;">
+            <a ui-sref="dashboard">
+                <button type="button" class="btn btn-warning">Back to DashBoard</button>
+            </a>
+        </div>
+    </div>
+    <div ng-show="performanceType == 'all'">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Select Comparison Type: </h5>
+            </div>
+            <div class="col-md-7">
+                <select class="selectpicker" name="data.teamPerformanceType" ng-model="data.teamPerformanceType"
+                        ng-init="data.teamPerformanceType='intra'">
+                    <option value="intra">Intra Team Comparison</option>
+                    <option value="inter">Inter Team Comparison</option>
+                </select>
+            </div>
+        </div>
+        <div ng-show="data.teamPerformanceType == 'intra'">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Select Team: </h5>
+                </div>
+                <div class="col-md-7">
+                    <select class="selectpicker" name="data.team" ng-model="data.team" ng-init="data.team='intra'">
+                        <option value="team1">Team A</option>
+                        <option value="team2">Team B</option>
+                        <option value="team3">Team C</option>
+                        <option value="team4">Team D</option>
+                        <option value="team5">Team E</option>
+                        <option value="team6">Team F</option>
+                        <option value="team7">Team G</option>
+                    </select>
+                </div>
+            </div>
+            <div id="intraTeamChart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        </div>
+        <div ng-show="data.teamPerformanceType == 'inter'">
+            <div class="container">
+                <h4>Team Wise Comparison |
+                    <small> Total Records 10,000</small>
+                </h4>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Teams</th>
+                        <th>Records</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Team A</td>
+                        <td>1865</td>
+                    </tr>
+                    <tr>
+                        <td>Team B</td>
+                        <td>1400</td>
+                    </tr>
+                    <tr>
+                        <td>Team C</td>
+                        <td>1250</td>
+                    </tr>
+                    <tr>
+                        <td>Team D</td>
+                        <td>1400</td>
+                    </tr>
+                    <tr>
+                        <td>Team E</td>
+                        <td>1580</td>
+                    </tr>
+                    <tr>
+                        <td>Team F</td>
+                        <td>1010</td>
+                    </tr>
+                    <tr>
+                        <td>Team G</td>
+                        <td>1345</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Styled mode pie -->
+            <div id="interTeamChart"></div>
+        </div>
+    </div>
+    <div ng-show="performanceType == 'single'">
+        <div class="row">
+            <div class="col-md-2">
+                <h5>Select Team: </h5>
+            </div>
+            <div class="col-md-9">
+                <select class="selectpicker" name="data.team" ng-model="data.team" ng-init="data.team='intra'">
+                    <option value="team1">Team A</option>
+                    <option value="team2">Team B</option>
+                    <option value="team3">Team C</option>
+                    <option value="team4">Team D</option>
+                    <option value="team5">Team E</option>
+                    <option value="team6">Team F</option>
+                    <option value="team7">Team G</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <h5>Select Month & Year: </h5>
+            </div>
+            <div class="col-md-9">
+                <select class="selectpicker" name="data.month" ng-model="data.month" ng-init="data.month='oct17'">
+                    <option value="oct17">October 2017</option>
+                    <option value="sep17">September 2017</option>
+                    <option value="aug17">August 2017</option>
+                    <option value="july17">July 2017</option>
+                </select>
+            </div>
+        </div>
+        <!-- Column with drilldown -->
+        <div id="surveyorPerformanceChart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
+</div>
+<br>

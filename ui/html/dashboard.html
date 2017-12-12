@@ -1,0 +1,311 @@
+<!-- NAVIGATION -->
+<style>
+    html {
+        background-color: #eee;
+    }
+</style>
+<div id="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="#"><strong font-size: 18px;>ISHA</strong></a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="dashboard"><strong style="font-size: 15px;">Dashboard</strong></a></li>
+            <li><a ui-sref="reports"><strong font-size: 15px;>Reports</strong></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a data-ui-sref="login" data-ui-sref-opts="{reload: true}"><span
+                    class="glyphicon glyphicon-log-out"></span><strong font-size: 15px;> Log Out</strong></a></li>
+        </ul>
+    </nav>
+    <div class="row" id="panelRow">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Performance</strong>
+                    </h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <div class="col-sm-3">
+                            <li><a ui-sref="performance({ type: 'Individual', paramOne: 'single' })"
+                                   data-toggle="tooltip" data-placement="bottom"
+                                   title="View Surveyor Performance"><img src="img/individual.svg"
+                                                                          alt="Individual Performance"></a>
+                                <figurecaption><span class="label label-default ng-binding" style="margin-left: 10px;">Surveyor</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <div class="col-sm-3">
+                            <li><a ui-sref="performance({ type: 'Team', paramOne: 'all' })" data-toggle="tooltip"
+                                   data-placement="left" title="View Teams Performance"><img src="img/team.svg"
+                                                                                             alt="Teams Performance"></a>
+                                <figurecaption><span class="label label-default ng-binding" style="margin-left: 20px;">Team</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Data Collection</strong>
+                    </h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <div class="col-sm-3">
+                            <li><a ui-sref="dataCollection({ status: 1, paramOne: 'overview' })" data-toggle="tooltip"
+                                   data-placement="right" title="View Data Overview"><img
+                                    src="img/notes.svg" alt="Remaining Data to be Collected"></a>
+                                <figurecaption><span class="label label-default ng-binding" style="margin-left: 10px;">Overview</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <div class="col-sm-3">
+                            <li><a ui-sref="dataCollection({ status: 2, paramOne: 'villageData' })"
+                                   data-toggle="tooltip" data-placement="left"
+                                   title="View Village Wise Data"><img src="img/pie.svg"
+                                                                       alt="Collected Data Synced to Server"></a>
+                                <figurecaption><span class="label label-default ng-binding">Data Distribution</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Data Analysis / Reports</strong>
+                    </h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <div class="col-sm-3">
+                            <li><a ui-sref="dataAnalysis({ reason: 'monthlyReport', paramOne: 'monthlyReport' })"
+                                   data-toggle="tooltip" data-placement="bottom"
+                                   title="View Monthly Status"><img src="img/graph2.svg"
+                                                                    alt="Monthly Report"></a>
+                                <figurecaption><span class="label label-default ng-binding">Monthly Status</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <!--<div class="col-sm-3">-->
+                        <!--<li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="right"-->
+                        <!--title="Open"><img src="img/gauge.svg" alt="Report 2 Image"></a></li>-->
+                        <!--</div>-->
+                        <div class="col-sm-3">
+                            <li><a ui-sref="dataAnalysis({ reason: 'demographic', paramOne: 'demographic' })"
+                                   data-toggle="tooltip" data-placement="top"
+                                   title="Veiw Demographic Reports"><img src="img/report.svg" alt="Demographic Reports"></a>
+                                <figurecaption><span class="label label-default ng-binding">Demographics</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <div class="col-sm-3">
+                            <li><a ui-sref="dataAnalysis({ reason: 'mortality', paramOne: 'mortality' })"
+                                   data-toggle="tooltip" data-placement="left"
+                                   title="View Analysis on Population"><img src="img/graph3.svg"
+                                                                            alt="Analysis Graph 2"></a></li>
+                            <figurecaption><span class="label label-default ng-binding" style="margin-left: 10px;">Population</span>
+                            </figurecaption>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Locations</strong>
+                    </h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="top"
+                                   title="View Barshi Data"><img
+                                    src="img/building.svg" alt="Building Icon"></a>
+                                <figurecaption><span class="label label-default ng-binding" style="margin-left: 15px;">Barshi</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <div class="col-sm-3">
+                            <li><a ui-sref="location({ value: 1, paramOne: 'MapRoute1' })" data-toggle="tooltip"
+                                   data-placement="bottom" title="View Locations in Maps"><img src="img/map.svg"
+                                                                                               alt="Map Icon"></a>
+                                <figurecaption><span class="label label-default ng-binding" style="margin-left: 6px;">Villages Map</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="bottom"
+                                   title="View Household Details"><img src="img/household.svg" alt="HouseHold"></a>
+                                <figurecaption><span class="label label-default ng-binding" style="margin-left: 10px;">HouseHold</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Biospecimen Tracking</strong>
+                    </h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="bottom"
+                                   title="View Cryovials"><img src="img/injection.svg" alt="Injection"></a>
+                                <figurecaption><span class="label label-default ng-binding">Cryovials</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="left"
+                                   title="View Study Analysis"><img src="img/microscope.svg" alt="Microscope"></a>
+                                <figurecaption><span class="label label-default ng-binding" style="margin-left: 12px;">Analysis</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <!--<div class="col-sm-3">-->
+                        <!--<li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="left"-->
+                        <!--title="View Study Details"><img src="img/flask.svg" alt="Lab Experiment"></a>-->
+                        <!--<figurecaption><span class="label label-default ng-binding" style="margin-left: 10px;">Study</span></figurecaption>-->
+                        <!--</li>-->
+                        <!--</div>-->
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="right"
+                                   title="View EDTA Tubes Details"><img src="img/bloodSample2.svg"
+                                                                        alt="Blood Sample"></a>
+                                <figurecaption><span class="label label-default ng-binding">Blood Collection</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Health Camp Check Up</strong>
+                    </h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="right"
+                                   title="View Mdeical History"><img src="img/ecg.svg" alt="Analytics Image"></a>
+                                <figurecaption><span class="label label-default ng-binding">Medical History</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="right"
+                                   title="View Smoking & Tobacco Intake Details"><img src="img/cigrattes.svg"
+                                                                                      alt="Tobaccco"></a>
+                                <figurecaption><span class="label label-default ng-binding">Smoker Status</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="bottom"
+                                   title="View Bio Measurements"><img src="img/heartBeat.svg" alt="Heart Beat"></a>
+                                <figurecaption><span class="label label-default ng-binding">Bio Measurements</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="left"
+                                   title="View Hospitilization Details"><img src="img/patient.svg" alt="Pill"></a>
+                                <figurecaption><span class="label label-default ng-binding">Hospitilization</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Logistics</strong>
+                    </h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <!--<div class="col-sm-3">-->
+                            <!--<li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="right"-->
+                                   <!--title="Open"><img src="img/layout.svg" alt="Layout Image"></a>-->
+                                <!--<figurecaption><span class="label label-default ng-binding"></span></figurecaption>-->
+                            <!--</li>-->
+                        <!--</div>-->
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="right"
+                                   title="View Transport Status"><img src="img/van.svg" alt="Van Image"></a>
+                                <figurecaption><span class="label label-default ng-binding">Transportation</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Others</strong>
+                    </h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="bottom"
+                                   title="View Goods Report"><img src="img/bag.svg" alt="Consumable Goods Image"></a>
+                                <figurecaption><span class="label label-default ng-binding">Consumables</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                        <div class="col-sm-3">
+                            <li><a ui-sref="hcamp" data-toggle="tooltip" data-placement="left"
+                                   title="View Reminders"><img src="img/bulb.svg" alt="Enumeration"></a>
+                                <figurecaption><span class="label label-default ng-binding" style="margin-left: 10px;">Reminders</span>
+                                </figurecaption>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

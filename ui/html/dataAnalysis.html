@@ -1,0 +1,40 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.selectpicker').selectpicker();
+    });
+</script>
+<div ng-controller='dataAnalysisCtrl'>
+    <div class="row">
+        <div class="col-md-offset-10 col-md-2" style="margin-top: 25px;">
+            <a ui-sref="dashboard">
+                <button type="button" class="btn btn-warning">Back to DashBoard</button>
+            </a>
+        </div>
+    </div>
+    <div ng-show="analysisType == 'monthlyReport'">
+        <div class="row">
+            <div class="col-md-1">
+                <h5>Select : </h5>
+            </div>
+            <div class="col-md-7">
+                <select class="selectpicker" name="data.year" ng-model="data.year" ng-init="data.year='last1'">
+                    <option value="last1">Last 1 Year</option>
+                    <option value="last2">Last 2 Years</option>
+                </select>
+            </div>
+        </div>
+        <!-- Update Options after Render -->
+        <div id="monthlyReportChart" style="min-width: 320px; max-width: 600px; margin: 0 auto"></div>
+        <!--<button id="plain">Plain</button>-->
+        <!--<button id="inverted">Inverted</button>-->
+        <!--<button id="polar">Polar</button>-->
+        <!--<button id="plain">Plain</button>-->
+        <!--<button id="inverted">Inverted</button>-->
+    </div>
+    <div ng-show="analysisType == 'demographic'">
+        <h4>Demographic Info in different Locations - Based on Gender</h4>
+        <!-- Stacked Percentage Column -->
+        <div id="demographicReportChart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
+</div>
+<br>

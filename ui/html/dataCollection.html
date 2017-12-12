@@ -1,0 +1,392 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.selectpicker').selectpicker();
+    });
+</script>
+<div ng-controller='dataCollectionCtrl'>
+    <div class="row">
+        <div class="col-md-10">
+            <h3>Data Collection Summary</h3>
+        </div>
+        <div class="col-md-2" style="margin-top: 25px;">
+            <a ui-sref="dashboard">
+                <button type="button" class="btn btn-warning">Back to DashBoard</button>
+            </a>
+        </div>
+    </div>
+    <div ng-show="dataCollectionStatus == 'villageData'">
+        <div class="container">
+            <h4>Data Distribution Village Wise | <small> Total Records 10,000</small></h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Village Name</th>
+                    <th>Records</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Balewadi</td>
+                    <td>5830</td>
+                </tr>
+                <tr>
+                    <td>Laxyachiwadi</td>
+                    <td>2490</td>
+                </tr>
+                <tr>
+                    <td>Phapalwadi</td>
+                    <td>1070</td>
+                </tr>
+                <tr>
+                    <td>Songiri</td>
+                    <td>490</td>
+                </tr>
+                <tr>
+                    <td>Bramhgaon</td>
+                    <td>90</td>
+                </tr>
+                <tr >
+                    <td>Bhongiri</td>
+                    <td>20</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="villageDataChart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+    </div>
+    <div ng-show="dataCollectionStatus == 'overview'">
+        <select class="selectpicker" name="data.areaName" ng-model="data.areaName" ng-init="data.areaName=''">
+            <option value="">Please Select Area</option>
+            <option value="378">Mirzanpur (378)</option>
+            <option value="505">Barshi Urban Area 5 (505)</option>
+            <option value="501">Gaikwad Plot, Ward No.1 Part No. 1 (501)</option>
+            <option value="502">Yedai Vihir, Rajput Plot Ward No.1 Part No. 2 (502)</option>
+            <option value="503">Pardeshi Plot Mulge Mala Ward No.1 Part NO.3 (503)</option>
+            <option value="504">Lahuji Chouk Ward No.1 Part No. 3 (504)</option>
+            <option value="506">Dr.Nene house Ward No.2 Part No.1 (506)</option>
+            <option value="313">Bhandegaon (313)</option>
+            <option value="507">Industrial Area NO. 2 And Pankaj Nagar (507)</option>
+            <option value="508">Cancer Hospital Ward NO.3 Part NO.1 (508)</option>
+            <option value="509">Bhise Plot Ward No.2 &amp; 3 (509)</option>
+            <option value="510">Industrial Area No.1, Power Station (510)</option>
+            <option value="511">S.B.Taillor to Barshi Textile Mill (511)</option>
+            <option value="512">Zadbuke Maidan to Chatrapati Bhavan (512)</option>
+            <option value="513">PWD to Ghodke Plot , Latur Road (513)</option>
+            <option value="514">Sambhaji Nagar 1&amp; 2 (514)</option>
+            <option value="515">MIT Estate Area To Bhosale Chouk (Karadkar) (515)</option>
+            <option value="516">Raut Chawl To Datta Nagar, Nale Plot (516)</option>
+            <option value="517">Bhosle Chouk to Bhagwant Petrol Pump (517)</option>
+            <option value="518">ST Stand to Yashwant Nagar (Phaphalwadi Road) (518)</option>
+            <option value="519">Mangade Chawl (519)</option>
+            <option value="520">Balaji Colony to Railway Way Bridge (520)</option>
+            <option value="521">Bhavanipeth (521)</option>
+            <option value="522">Rajan Mill to Dutta Way Bridge (522)</option>
+            <option value="523">Dutta Way Bridge to Post Office (523)</option>
+            <option value="524">Dhage Mala to Yadav Hospital (524)</option>
+            <option value="525">Yadav Hospital to Vishwas Barbole House (525)</option>
+            <option value="526">Western Side of Mohol Road to Old Kasarwadi Road (526)</option>
+            <option value="527">Old Kasarwadi Road to Dr. Mastood Hospital (527)</option>
+            <option value="528">Kurduwadi Road to Alipur Road (528)</option>
+            <option value="529">Gund Plot to Sanmitra Housing Society (529)</option>
+            <option value="530">Sanmitra Housing Society to Shivaji College (530)</option>
+            <option value="531">Vyankatesh Manjare Maharaj Mandir to Madheshwari Wedding Hall (531)</option>
+            <option value="532">Punamiya School to Shrikrushna Temple (532)</option>
+            <option value="533">Mauli Chouk to Floor Mill (533)</option>
+            <option value="534">Mauli Chouk to Tahsil Office (534)</option>
+            <option value="535">Limbusawari Road to Dawalmalik Chouk (535)</option>
+            <option value="536">Dawalmalik Chouk to Water Tank (536)</option>
+            <option value="537">Water Tank to Dr. Bhosle Hospital (537)</option>
+            <option value="538">Dr. Sawant Hospital to Shendge Plot (538)</option>
+            <option value="539">Gadegaon Road to Teacher Colony (539)</option>
+            <option value="540">Madha Colony No. 1 &amp; 2 (540)</option>
+            <option value="541">Gadegaon Road to Adarsha School Road (541)</option>
+            <option value="542">Muslim Shashanbhumi to Ladis Hostel (542)</option>
+            <option value="543">422 road to Jalshudhikaran Plant (543)</option>
+            <option value="544">Back side of Jalsudhikaran Plant (544)</option>
+            <option value="545">Ekvirai Chouk to Juni Wes Chouk (545)</option>
+            <option value="546">Hindu Smashanbhumi (546)</option>
+            <option value="547">Mangire Mala (547)</option>
+            <option value="548">Namdev Mandir (548)</option>
+            <option value="549">Bhagwant Mandir to Limbusawari Road (549)</option>
+            <option value="550">Tahsil Office to Ambedkar Marga (550)</option>
+            <option value="551">Jagdale Mama Hospital to Sulakhe Highschool (551)</option>
+            <option value="552">Between Kurduwadi Road to Priyadarshani Cloth Center and Takhankar Road to Ambedkar Marg (552)</option>
+            <option value="553">Khurpe Bol (553)</option>
+            <option value="554">Between Latur Road to Old Lata Takies &amp; Azad Chouk to Ainapur Maruti Road (554)</option>
+            <option value="555">Between Lingayat Bording To Lokhand Galli &amp; Khude Bol to Zadbuke Kirana Shop (555)</option>
+            <option value="556">Betweeb MSEB Main Office to Azad Chok &amp; Gandhi Gardan (556)</option>
+            <option value="304">Sangamner (304)</option>
+            <option value="202">Alipur (202)</option>
+            <option value="385">Nimbalk (385)</option>
+            <option value="305">Ambegaon (305)</option>
+            <option value="999">Demo (999)</option>
+            <option value="404">Ambabaichiwadi (404)</option>
+            <option value="303">Aljapur (303)</option>
+            <option value="601">Asu (601)</option>
+            <option value="602">Bodkha (602)</option>
+            <option value="603">Bramhagaon (603)</option>
+            <option value="604">Dahitne (604)</option>
+            <option value="605">Pimpalwadi (605)</option>
+            <option value="606">Saranwadi (606)</option>
+            <option value="607">Bavachi (607)</option>
+            <option value="608">Dhagpimpri (608)</option>
+            <option value="609">Dudhi (609)</option>
+            <option value="610">Loni (610)</option>
+            <option value="611">Rui (611)</option>
+            <option value="612">Ainapurwadi (612)</option>
+            <option value="613">Devgaon (KH) (613)</option>
+            <option value="614">Katrabad (614)</option>
+            <option value="615">Khasgaon (615)</option>
+            <option value="616">Nalgaon (616)</option>
+            <option value="617">Songiri (617)</option>
+            <option value="618">Wadner (618)</option>
+            <option value="619">Wanewadi (619)</option>
+            <option value="620">Awarpimpri (620)</option>
+            <option value="621">Kapilapuri (621)</option>
+            <option value="622">Karanja (622)</option>
+            <option value="625">Shirala (625)</option>
+            <option value="623">Lohara (623)</option>
+            <option value="624">Pithapuri (624)</option>
+            <option value="626">Waghegavhan (626)</option>
+            <option value="401">Raulgaon (401)</option>
+            <option value="380">Mungashi (Ratan) (380)</option>
+            <option value="627">Jawala (N) (627)</option>
+            <option value="628">Sawadarwadi (628)</option>
+            <option value="629">Yenegaon (629)</option>
+            <option value="357">Kasari (357)</option>
+            <option value="434">Zaregaon (434)</option>
+            <option value="342">Hattij (342)</option>
+            <option value="412">Bhalgaon (412)</option>
+            <option value="352">Jotibachiwadi (352)</option>
+            <option value="306">Sarole (306)</option>
+            <option value="402">Rui (402)</option>
+            <option value="235">Gaudgaon (235)</option>
+            <option value="373">Malegaon R (373)</option>
+            <option value="701">Bhotra (701)</option>
+            <option value="702">andora (702)</option>
+            <option value="632">Jamgaon (632)</option>
+            <option value="633">Khasapuri (633)</option>
+            <option value="634">Rajuri (634)</option>
+            <option value="635">Rosa (635)</option>
+            <option value="636">Bhandgaon (636)</option>
+            <option value="637">Ghargaon (637)</option>
+            <option value="638">Kandalgaon (638)</option>
+            <option value="639">Shirsav (639)</option>
+            <option value="640">Arangaon (640)</option>
+            <option value="641">Hingangaon (BK) (641)</option>
+            <option value="642">Lakhi (642)</option>
+            <option value="643">Takali (643)</option>
+            <option value="644">Wakadi (644)</option>
+            <option value="100">Ratanjan (100)</option>
+            <option value="105">Sarjapur (105)</option>
+            <option value="270">Ladole (270)</option>
+            <option value="645">Anala (645)</option>
+            <option value="646">Malkapur (646)</option>
+            <option value="647">Aleshwar (647)</option>
+            <option value="648">Bangalwadi (648)</option>
+            <option value="649">Gosaviwadi (649)</option>
+            <option value="650">Donja (650)</option>
+            <option value="651">Bhoinja (651)</option>
+            <option value="652">Kandari (652)</option>
+            <option value="653">Karla (653)</option>
+            <option value="654">Birobachiwadi (654)</option>
+            <option value="655">Gosaviwadi (Ambhi) (655)</option>
+            <option value="656">Hangewadi (656)</option>
+            <option value="657">Khandeshwarwadi (657)</option>
+            <option value="658">Kukkadgaon (658)</option>
+            <option value="659">Ratnapur (659)</option>
+            <option value="660">Andori (660)</option>
+            <option value="661">Jakepimpari (661)</option>
+            <option value="662">Khanapur (662)</option>
+            <option value="663">Kumbhephal (663)</option>
+            <option value="664">Pachpimpala (664)</option>
+            <option value="665">Pimperkhed (665)</option>
+            <option value="666">Pistamwadi (666)</option>
+            <option value="667">Rohkal (667)</option>
+            <option value="668">Sakat (BK) (668)</option>
+            <option value="669">Sakat (P) (669)</option>
+            <option value="670">Sakat (KH) (670)</option>
+            <option value="671">Domgaon (671)</option>
+            <option value="672">Kaudgaon (672)</option>
+            <option value="673">Kumbheja (673)</option>
+            <option value="674">Sonari (674)</option>
+            <option value="679">Ingonda (679)</option>
+            <option value="680">Mugaon (680)</option>
+            <option value="681">Parewadi (681)</option>
+            <option value="682">Sirgirwadi (682)</option>
+            <option value="675">Chinchpur (BK) (675)</option>
+            <option value="676">Pandharewadi (676)</option>
+            <option value="677">Sakkarwadi (677)</option>
+            <option value="683">Dhotri (683)</option>
+            <option value="684">Shelgaon (684)</option>
+            <option value="685">Kalewadi (685)</option>
+            <option value="686">Devgaon(BK) (686)</option>
+            <option value="687">Jakatewadi (687)</option>
+            <option value="688">Takmodwadi (688)</option>
+            <option value="689">Undegaon (689)</option>
+            <option value="690">Deulgaon (690)</option>
+            <option value="691">Jagdalwadi (691)</option>
+            <option value="692">Katewadi (692)</option>
+            <option value="693">Kokarwadi (693)</option>
+            <option value="694">Tandulwadi (694)</option>
+            <option value="695">Chinchpur (KH) (695)</option>
+            <option value="696">Hingangaon (KH) (696)</option>
+            <option value="697">Watephal (697)</option>
+            <option value="698">Lonarwadi (698)</option>
+            <option value="801">Paranda urban aera no.1 (801)</option>
+            <option value="802">Paranda urban area no.2 (802)</option>
+            <option value="803">Paranda urban area no.3 (803)</option>
+            <option value="804">paranda urban no.4 (804)</option>
+            <option value="805">Paranda urban area no. 5 (805)</option>
+            <option value="806">Paranda Urban Area No.6 (806)</option>
+            <option value="807">Paranda urban area no 7 (807)</option>
+            <option value="808">Paranda urban area no 8 (808)</option>
+            <option value="255">Kalegaon (255)</option>
+            <option value="809">Paranda Urban area no 09 (809)</option>
+            <option value="810">Paranda Urban Area no 10 (810)</option>
+            <option value="811">Paranda Urban Area No.11 (811)</option>
+            <option value="812">Paranda Urban Area No.12 (812)</option>
+            <option value="813">Bhoom Urban Area no 1 (813)</option>
+            <option value="814">Bhoom Urban Area No 2 (814)</option>
+            <option value="815">Bhoom Urban area no 3 (815)</option>
+            <option value="816">Bhoom Urban Area no 4 (816)</option>
+            <option value="817">Bhum urban Area NO.5 (817)</option>
+            <option value="818">Bhoom Urban Area No.6 (818)</option>
+            <option value="819">Bhoom Urban Area.No.7 (819)</option>
+            <option value="820">Bhoom Urban Area No.8 (820)</option>
+            <option value="821">Bhoom Urban Area No.9 (821)</option>
+            <option value="822">Bhoom Urban Area No.10 (822)</option>
+            <option value="823">Bhoom Urban Area No. 11 (823)</option>
+            <option value="824">Bhoom Urban Area No.12 (824)</option>
+            <option value="825">Bhoom Urban Area No. 13 (825)</option>
+            <option value="826">Bhoom Urban Area No.14 (826)</option>
+            <option value="699">Mankeshwar (699)</option>
+            <option value="700">Shekapur (700)</option>
+            <option value="703">Wangi [BK] (703)</option>
+            <option value="704">Wangi [Kh.] (704)</option>
+            <option value="705">Ashta (705)</option>
+            <option value="706">Ashtewadi (706)</option>
+            <option value="707">Golegaon (707)</option>
+            <option value="708">Arsoli (708)</option>
+            <option value="709">Ramkund (709)</option>
+            <option value="710">Songiri (710)</option>
+            <option value="711">Wakwad (711)</option>
+            <option value="712">Tambewadi (712)</option>
+            <option value="713">Sawargaon (713)</option>
+            <option value="714">Darewadi (714)</option>
+            <option value="715">Dewangra (715)</option>
+            <option value="716">Devlali (716)</option>
+            <option value="717">Walwad (717)</option>
+            <option value="718">Ganegaon (718)</option>
+            <option value="719">Walha (719)</option>
+            <option value="720">Samangaon (720)</option>
+            <option value="721">Patsangavi (721)</option>
+            <option value="722">Ralesangavi (722)</option>
+            <option value="723">Hiwarda (723)</option>
+            <option value="724">Chumbli (724)</option>
+            <option value="725">Antargaon (725)</option>
+            <option value="726">Ida (726)</option>
+            <option value="727">Pida (727)</option>
+            <option value="728">Belgaon (728)</option>
+            <option value="729">Pimpalgaon (729)</option>
+            <option value="730">Chinchapur [D] (730)</option>
+            <option value="731">Bhogalgaon (731)</option>
+            <option value="732">Navalgaon (732)</option>
+            <option value="733">Sadesangavi (733)</option>
+            <option value="734">Hadongri (734)</option>
+            <option value="735">Hiwara (735)</option>
+            <option value="736">Dindori (736)</option>
+            <option value="737">Wanjarwadi (737)</option>
+            <option value="738">Bavi (738)</option>
+            <option value="739">Jamb (739)</option>
+            <option value="740">Bhavanwadi [Tembe] (740)</option>
+            <option value="741">Panhalwadi (741)</option>
+            <option value="742">Matrewadi (742)</option>
+            <option value="743">Ulup (743)</option>
+            <option value="744">Barhanpur (744)</option>
+            <option value="745">Gormale (745)</option>
+            <option value="746">Warud (746)</option>
+            <option value="747">Kasari (747)</option>
+            <option value="748">Warewadgaon (748)</option>
+            <option value="749">Buradwadi (749)</option>
+            <option value="750">Dudhodi (750)</option>
+            <option value="751">Umachiwadi (751)</option>
+            <option value="752">Wadachiwadi (752)</option>
+            <option value="753">Nanajwadi (753)</option>
+            <option value="754">Bedarwadi (754)</option>
+            <option value="755">Jaiwantnagar (755)</option>
+            <option value="756">Dimakhwadi (756)</option>
+            <option value="757">Pathrud (757)</option>
+            <option value="758">Krishanapur (758)</option>
+            <option value="761">Ambhi (761)</option>
+            <option value="762">Anandwadi [ambhi] (762)</option>
+            <option value="763">Dandegaon [BK] (763)</option>
+            <option value="764">Jejala (764)</option>
+            <option value="765">Tintraj (765)</option>
+            <option value="766">Antarwali (766)</option>
+            <option value="760">Sawargaon (760)</option>
+            <option value="759">Wadgaon [Nali] (759)</option>
+            <option value="767">Nali (767)</option>
+            <option value="768">Ghulewadi (768)</option>
+            <option value="769">Sukata (769)</option>
+            <option value="770">Chincholi (770)</option>
+            <option value="771">Padoli (771)</option>
+            <option value="772">Rameshwar (772)</option>
+            <option value="773">Dukkarwadi (773)</option>
+            <option value="774">Irachiwadi (774)</option>
+            <option value="775">Bhavanwadi [sukta] (775)</option>
+            <option value="776">Ghatnandur (776)</option>
+            <option value="777">Ieet (777)</option>
+            <option value="778">Nagewadi (778)</option>
+            <option value="779">Girwali (779)</option>
+            <option value="780">Chandwad (780)</option>
+            <option value="781">Dokewadi (781)</option>
+            <option value="782">Sonnewadi (782)</option>
+            <option value="783">Anjansonda (783)</option>
+            <option value="784">Pakharud (784)</option>
+            <option value="785">jyotibachiwadi (785)</option>
+            <option value="786">Giralgaon (786)</option>
+            <option value="787">Andarud (787)</option>
+            <option value="788">Lanjeshwar (788)</option>
+            <option value="789">Nipani (789)</option>
+            <option value="790">Malewadi (790)</option>
+            <option value="791">Indapur (791)</option>
+            <option value="792">Bori (792)</option>
+            <option value="793">Khanapur (793)</option>
+            <option value="794">Isrup (794)</option>
+            <option value="795">Nandgaon (795)</option>
+            <option value="796">Golegaon (796)</option>
+            <option value="797">Pardi (797)</option>
+            <option value="798">Kanheri (798)</option>
+            <option value="799">Kelewadi (799)</option>
+            <option value="800">Sarmkundi (800)</option>
+            <option value="827">Yasawandi (827)</option>
+            <option value="828">Izora (828)</option>
+            <option value="829">Shelgaon (829)</option>
+            <option value="830">Dahiphal (830)</option>
+            <option value="831">Tandulwadi (831)</option>
+            <option value="832">Jawalka (832)</option>
+            <option value="833">Shendi (833)</option>
+            <option value="834">Kawadewadi (834)</option>
+            <option value="835">Pimpalgaon [k] (835)</option>
+            <option value="836">Hatola (836)</option>
+            <option value="837">Jeba (837)</option>
+            <option value="838">Pangari (838)</option>
+            <option value="839">Brahmagaon (839)</option>
+            <option value="840">Pargaon (840)</option>
+            <option value="841">Rui (841)</option>
+            <option value="842">Jankapur (842)</option>
+            <option value="843">Lonkhas (843)</option>
+            <option value="844">Ghatpimpari (844)</option>
+            <option value="845">Bangarwadi (845)</option>
+            <option value="846">Washi (846)</option>
+            <option value="847">Bavi (847)</option>
+            <option value="848">Khamkarwadi (848)</option>
+            <option value="849">Sonarwadi (849)</option>
+        </select>
+        <div id="eligiblesHHQChart" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+        <br><br>
+        <div id="enumerationChart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
+</div>
+<br>
