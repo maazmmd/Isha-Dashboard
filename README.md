@@ -16,5 +16,5 @@ $$ bower Install
 Install Http-server Globally using npm  
 $$ npm install -g http-server
 
-Run the Http-server on Deffault Port (- Optional with Cache Deleted every Second  
+Run the Http-server on Deffault Port (-c Optional, as c1 specifies Cache refreshed every Second)   
 $$ http-server -c1
