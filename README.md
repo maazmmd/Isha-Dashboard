@@ -33,7 +33,7 @@ isha_Dashboard
 
 Clone the code from the repository using Below Instruction  
 
-$$ git clone https://Maazmmd@bitbucket.org/asadhhabib/isha-dashboard.git isha_dashboard  
+$$ git clone https://github.com/maazmmd/Isha-Dashboard isha_dashboard  
 
 Go Inside isha_Dashboard  UI Directory  
 $$ cd isha_dashboard/ui  
