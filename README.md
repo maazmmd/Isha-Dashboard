@@ -1,20 +1,47 @@
 # ISHA DashBoard
 
+### Prerequisite  
 
-## Instructions / Usage :
+NodeJS (v5.6.0+) with NPM 3.6.0+  
 
-Clone the code using Below Instruction
+************************************************************************************************************* 
+### Installing Node on Mac  
+[Reference link](http://blog.teamtreehouse.com/install-node-js-npm-mac)  
 
-$$ git clone https://github.com/maazmmd/isha_Dashboard.git isha_Dashboard
+Open Terminal and follow below instructions/commands  
+Install brew  
+$$ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
 
-Go Inside isha_Dashboard Directory  
-$$ cd isha_Dashboard
+Install NodeJS  
+$$brew install node  
+To see if Node is installed, type node -v in Terminal.  
+To see if NPM is installed, type npm -v in Terminal.  
 
-Install 3rd Party Vendor Files  
-$$ bower Install
+Upgrade to latest version of Node and NPM  
+$$brew update  
+$$brew upgrade node  
+************************************************************************************************************* 
+#### Project Structure  
+Create following project structure  
 
-Install Http-server Globally using npm  
-$$ npm install -g http-server
+isha_Dashboard  
+|----- ui  
+|----- services  
 
-Run the Http-server on Deffault Port (-c Optional, as c1 specifies Cache refreshed every Second)   
-$$ http-server -c1
+************************************************************************************************************* 
+### Instructions / Usage :  
+
+Clone the code from the repository using Below Instruction  
+
+$$ git clone https://Maazmmd@bitbucket.org/asadhhabib/isha-dashboard.git isha_dashboard  
+
+Go Inside isha_Dashboard  UI Directory  
+$$ cd isha_dashboard/ui  
+
+$$ bower Install  
+
+Install Globally Http-server using npm  
+$$ npm install -g http-server  
+
+$$ http-server -c1  
+Run the Http-server which will run on Default Port 8080, URL : http://127.0.0.1:8080/#!/  
